@@ -1,0 +1,22 @@
+{
+  "name": "frida-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "frida": "^16.0.1",
+    "frida-il2cpp-bridge": "^0.7.13",
+    "minimist": "^1.2.7",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.5"
+  },
+  "scripts": {
+    "tsc-version": "tsc --version",
+    "start-sss": "node run --folder sssurvivers --run build,compile,start --process \"Soulstone Survivors.exe\""
+  },
+  "devDependencies": {
+    "@types/frida-gum": "*",
+    "@types/node": "*",
+    "frida-compile": "^10.2.0"
+  }
+}
