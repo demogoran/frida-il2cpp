@@ -13,13 +13,8 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "*": ["*", "src/*"]
+      "*": ["*"]
     }
   },
-  "exclude": [
-    "./node_modules/*",
-    "../frida-il2cpp-bridge-old/*",
-    "../frida-il2cpp-bridge-master/*",
-    "../frida-Il2Cpp-bridge-master/*"
-  ]
+  "exclude": ["./node_modules/*"]
 }

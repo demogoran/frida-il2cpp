@@ -6,13 +6,13 @@
   "dependencies": {
     "frida": "^16.0.1",
     "frida-il2cpp-bridge": "^0.7.13",
+    "minimist": "^1.2.7",
     "rimraf": "^3.0.2",
     "typescript": "^4.5.5"
   },
   "scripts": {
     "tsc-version": "tsc --version",
-    "start": "rimraf dist && tsc && frida-compile ./dist/script.js -o ./dist/run.js && node main",
-    "start-sss": "cd sssurvivers && npm run start"
+    "start-sss": "node run --folder sssurvivers --run build,compile,start --process \"Soulstone Survivors.exe\""
   },
   "devDependencies": {
     "@types/frida-gum": "*",
