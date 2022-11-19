@@ -43,7 +43,7 @@ const updateFunctions = (
   if (!enabled) return;
   const cls = Il2Cpp.Domain.assembly(assembly).image.class(clss);
   cls.method(method).implementation = function (...params) {
-    return implementation.call(this, { method }, ...params);
+    return implementation.call(this, { method, params }, ...params);
   };
 };
 
