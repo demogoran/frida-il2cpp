@@ -24,8 +24,14 @@ const commList = {
     execAsync(
       `frida-compile src/${folder}/dist/${folder}/script.js -o src/${folder}/dist/run.js`
     ),
-  start: async (folder, process) =>
-    execAsync(`node main "${process}" "src/${folder}/dist"`),
+  start: async (folder, process) => {
+    switch (argv.type) {
+      case "android":
+        return execAsync(`node main-android "${process}" "src/${folder}/dist"`);
+      default:
+        return execAsync(`node main "${process}" "src/${folder}/dist"`);
+    }
+  },
 };
 
 (async () => {

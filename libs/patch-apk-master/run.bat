@@ -1,0 +1,1 @@
+call c:\python38\python.exe patch-apk.py com.yourstoryinteractive.sails.pirate.adventure --no-enable-user-certs

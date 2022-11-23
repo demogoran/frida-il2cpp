@@ -12,7 +12,8 @@
   },
   "scripts": {
     "tsc-version": "tsc --version",
-    "start-sss": "node run --folder sssurvivers --run build,compile,start --process \"Soulstone Survivors.exe\""
+    "start-sss": "node run --folder sssurvivers --run build,compile,start --process \"Soulstone Survivors.exe\"",
+    "start-rom": "node run --folder romantic --run build,compile,start --type android"
   },
   "devDependencies": {
     "@types/frida-gum": "*",

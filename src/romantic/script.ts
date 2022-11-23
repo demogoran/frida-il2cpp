@@ -36,9 +36,9 @@ async function main() {
   try {
     await Il2Cpp.initialize();
     console.log("Start dump");
-    //await Il2Cpp.dump("dump.cs");
+    await Il2Cpp.dump("dump.cs");
     Il2Cpp.perform(() => {
-      startListeners();
+      //startListeners();
       /* Il2Cpp.trace()
         .classes(
           Il2Cpp.Domain.assembly("Assembly-CSharp").image.class(
