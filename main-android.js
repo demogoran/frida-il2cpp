@@ -42,7 +42,7 @@ const main = async () => {
   await script.load();
   console.log("[*] Script loaded");
 
-  await frida.resume("Gadget");
+  await device.resume("Gadget");
 
   /* const api = script.exports;
   console.log(await api.getExports()); */
