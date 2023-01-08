@@ -38,11 +38,15 @@ const updateFunctions = (
   clss,
   method,
   implementation,
-  assembly = "Assembly-CSharp"
+  assembly = "Assembly-CSharp",
+  paramsCount
 ) => {
   if (!enabled) return;
   const cls = Il2Cpp.Domain.assembly(assembly).image.class(clss);
-  cls.method(method).implementation = function (...params) {
+  cls.method(
+    method,
+    paramsCount >= 0 ? paramsCount : undefined
+  ).implementation = function (...params) {
     return implementation.call(this, { method, params }, ...params);
   };
 };

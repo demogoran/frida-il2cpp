@@ -7,35 +7,21 @@ const startListeners = () => {
   addListener("Assembly-CSharp", "Stats", ["SimpleMultiplyStats"]);
   addListener("Assembly-CSharp", "Stats", ["CopyStats"]); */
 
-  /* const callback = function ({ method }, _choice, _cost, _width, _showTip) {
+  const callback = function ({ method }, _choice, _cost, _width, _showTip) {
     console.log("CATCHED", _choice, _cost, _width, _showTip);
-    return this.method(method).invoke(_choice, -10, _width, _showTip);
+    return this.method(method).invoke(_choice, 1, _width, false);
   };
   updateFunctions(true, "ChoicePremiumManager", "Initialize", callback);
- */
 
-  const callback = function ({ method }, _jsonObj, ...rest) {
+  /* const callback = function ({ method }, _jsonObj, ...rest) {
     const json = JSON.parse(_jsonObj);
     console.log("json", JSON.stringify(json, null, 4), rest);
 
-    /* json.sto = json.sto.map((x) =>
-      x?.body?.ind === "18"
-        ? {
-            hdr: {
-              ind: "1000",
-              syn: "1",
-            },
-            body: {
-              ind: "1000",
-            },
-          }
-        : x
-    ); */
     const param = Il2Cpp.String.from(JSON.stringify(json));
     const result = this.method(method).invoke(_jsonObj, ...rest);
     //console.log("CATCHED", JSON.stringify(json, null, 4), result);
     return result;
-  };
+  }; */
   //updateFunctions(true, "Account", "FromJSONObject", callback);
 
   console.log("INIT HOOK HERE");
@@ -160,7 +146,7 @@ async function main() {
       console.log(acc.handle);
       console.log(acc.value.field("hardCurrency").value);
 
-      acc.value.method("Save").invoke();
+      //acc.value.method("Save").invoke();
       /* const acc = Il2Cpp.Domain.assembly("Assembly-CSharp")
         .image.class("Account")
         .field("instance");
@@ -172,8 +158,8 @@ async function main() {
       //if (1 === 1) return;
 
       //Il2Cpp.dump();
-      //startListeners();
-
+      startListeners();
+      if (1 === 1) return;
       const classes = [
         /*
         //"SceneStoryManager", // on scene do something
