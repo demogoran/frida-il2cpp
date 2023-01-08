@@ -7,8 +7,6 @@ console.log("args", args);
 const game = args[0];
 const dir = args[1];
 
-console.log(1);
-
 const execAsync = (...args) =>
   new Promise((resolve, reject) => {
     const child = require("child_process").exec(...args);
@@ -27,10 +25,6 @@ const execAsync = (...args) =>
 
 const getPIDCommand = `powershell -command "Get-WmiObject Win32_Process -Filter \\"name = '${game}'\\" | Select -ExpandProperty \\"ProcessId\\""`;
 const main = async () => {
-  /* const pid = await frida.spawn(
-    "C:/Users/demogor/AppData/Local/Plarium/PlariumPlay/StandAloneApps/raid/237/start.bat"
-  ); */
-  console.log(123);
   const pid = await execAsync(getPIDCommand);
   console.log("pid", pid);
   const session = await frida.attach(+pid);

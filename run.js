@@ -19,17 +19,17 @@ const execAsync = (...args) =>
   });
 
 const commList = {
-  build: async (folder) => execAsync(`cd src/${folder} && rimraf dist && tsc`),
+  build: async (folder) => execAsync(`rimraf dist && npm run build`),
   compile: async (folder) =>
     execAsync(
-      `frida-compile src/${folder}/dist/${folder}/script.js -o src/${folder}/dist/run.js`
+      `frida-compile dist/${folder}/script.js -o dist/${folder}/run.js`
     ),
   start: async (folder, process) => {
     switch (argv.type) {
       case "android":
         return execAsync(`node main-android "${process}" "src/${folder}/dist"`);
       default:
-        return execAsync(`node main "${process}" "src/${folder}/dist"`);
+        return execAsync(`node main "${process}" "dist/${folder}"`);
     }
   },
 };
