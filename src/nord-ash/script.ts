@@ -7,14 +7,17 @@ const startListeners = () => {
   addListener("Assembly-CSharp", "Stats", ["SimpleMultiplyStats"]);
   addListener("Assembly-CSharp", "Stats", ["CopyStats"]); */
 
-  const callback = function ({ method }, itemXP) {
-    const obj = itemXP as Il2Cpp.Object;
-    console.log(obj);
-    //console.log(obj.field("_poolAmount"), obj.field("_poolAmount")?.value);
-    //obj.field("_poolAmount").value = 100;
-    return this.method(method).invoke(itemXP);
+  const callback = function ({ method }, baseValue, characterData, stat) {
+    //const obj = itemXP as Il2Cpp.Object;
+    //console.log(obj, this);
+    if (stat == "Attract") {
+      baseValue = 1000;
+    }
+    console.log(baseValue, characterData, stat, stat == "Attract");
+    //this.field("_poolAmount").value = 10000;
+    return this.method(method).invoke(baseValue, characterData, stat);
   };
-  updateFunctions(true, "ExperienceManager", "AddXP", callback);
+  updateFunctions(true, "Stats", "ModifyCharacterValue", callback);
 
   /* updateFunctions(
     true,

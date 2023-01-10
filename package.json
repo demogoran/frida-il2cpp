@@ -15,7 +15,7 @@
     "start-sss": "node run --folder sssurvivers --run build,compile,start --process \"Soulstone Survivors.exe\"",
     "start-gfr": "node run --folder gunfire --run build,compile,start --process \"Gunfire Reborn.exe\"",
     "start-rom": "node run --folder romantic --run build,compile,start --type android",
-    "start-nord-ash": "node run --folder nord-ash --run build,compile,start --process \"Nordic Ashes.exe\"",
+    "start-nash": "node run --folder nord-ash --run build,compile,start --process \"Nordic Ashes.exe\"",
     "build": "sucrase src -d dist --transforms typescript,imports"
   },
   "devDependencies": {
